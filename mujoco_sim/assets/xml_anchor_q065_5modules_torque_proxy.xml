@@ -1,0 +1,38 @@
+<mujoco model="anchoring_q065_5modules_torque_proxy">
+  <!-- Robot collision: only mod_i_in cylinders; STL, mod_i_link and mod_i_out are visual-only. -->
+  <visual>
+    <scale contactheight="0.05" contactwidth="0.01" />
+  </visual>
+  <option cone="elliptic" noslip_iterations="5" timestep="0.002" gravity="0 0 -9.81" />
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="32" />
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4" />
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
+  </asset>
+  <include file="REU_snake_robot_torque_proxy.xml" />
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true" />
+    <geom name="floor" size="5 5 .05" type="plane" material="grid" group="2" />
+    <body name="Wall1" pos="0.043000713517999896 0 0.2">
+      <geom name="Wall_1" type="box" size="0.01 0.11 0.5" contype="1" conaffinity="2" group="2" rgba="0.8 0.5 0.2 0.2" />
+    </body>
+    <body name="Wall2" pos="-0.043000713517999896 0 0.2">
+      <geom name="Wall_2" type="box" size="0.01 0.11 0.5" contype="1" conaffinity="2" group="2" rgba="0.8 0.5 0.2 0.2" />
+    </body>
+  </worldbody>
+  <contact>
+    <pair name="proxy_0_in_wall1" geom1="Wall_1" geom2="mod_0_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_0_in_wall2" geom1="Wall_2" geom2="mod_0_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_1_in_wall1" geom1="Wall_1" geom2="mod_1_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_1_in_wall2" geom1="Wall_2" geom2="mod_1_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_2_in_wall1" geom1="Wall_1" geom2="mod_2_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_2_in_wall2" geom1="Wall_2" geom2="mod_2_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_3_in_wall1" geom1="Wall_1" geom2="mod_3_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_3_in_wall2" geom1="Wall_2" geom2="mod_3_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_4_in_wall1" geom1="Wall_1" geom2="mod_4_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+    <pair name="proxy_4_in_wall2" geom1="Wall_2" geom2="mod_4_in" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1" />
+  </contact>
+  <keyframe>
+    <key name="q065" qpos="-0.04660692039671295 0 0.01396468827655025 0.9868259031903286 0 0.1617857743826451 0 0 0.65 0 0.7853981633974483" ctrl="0 0 0 0" />
+  </keyframe>
+</mujoco>

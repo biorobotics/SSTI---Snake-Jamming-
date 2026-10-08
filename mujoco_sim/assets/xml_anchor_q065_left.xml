@@ -1,0 +1,40 @@
+<mujoco model="anchoring_q065_left">
+  <!-- q is the mid-axis hinge deflection magnitude, not the geometric opening.
+       L=0.1021 m, r=0.0167 m, q=0.65 rad.
+       Inner wall gap = 2*r + L*cos(0.5*(pi-q)) = 0.06600142703599979 m.
+       Reuses the archived four-module robot and original STL; no parameter fitting.
+       Root tilt = signed q/2 to align the bend bisector with the vertical.
+       Root translation centers the existing collision envelope and gives 5 mm floor clearance.
+       The real mesh does not exactly match the ideal L,r envelope; inspect the contact report. -->
+  <visual><scale contactheight="0.05" contactwidth="0.01"/></visual>
+  <option cone="elliptic" noslip_iterations="5" timestep="0.002" gravity="0 0 -9.81"/>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="32"/>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+  </asset>
+  <include file="REU_snake_robot_stable_1.xml"/>
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="5 5 .05" type="plane" material="grid" group="2"/>
+    <body name="Wall1" pos="0.043000713517999896 0 0.2">
+      <geom name="Wall_1" type="box" size="0.01 0.11 0.5" contype="1" conaffinity="2" group="2" rgba="0.8 0.5 0.2 0.2"/>
+    </body>
+    <body name="Wall2" pos="-0.043000713517999896 0 0.2">
+      <geom name="Wall_2" type="box" size="0.01 0.11 0.5" contype="1" conaffinity="2" group="2" rgba="0.8 0.5 0.2 0.2"/>
+    </body>
+  </worldbody>
+  <contact>
+    <pair name="mesh0_wall1" geom1="Wall_1" geom2="mesh0" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+    <pair name="mesh0_wall2" geom1="Wall_2" geom2="mesh0" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+    <pair name="mesh1_wall1" geom1="Wall_1" geom2="mesh1" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+    <pair name="mesh1_wall2" geom1="Wall_2" geom2="mesh1" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+    <pair name="mesh2_wall1" geom1="Wall_1" geom2="mesh2" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+    <pair name="mesh2_wall2" geom1="Wall_2" geom2="mesh2" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+    <pair name="mesh3_wall1" geom1="Wall_1" geom2="mesh3" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+    <pair name="mesh3_wall2" geom1="Wall_2" geom2="mesh3" condim="3" friction="1.35 1.35 1.35" solimp="0.99 0.99 0.001" solref="0.004 1"/>
+  </contact>
+  <keyframe>
+    <key name="q065" qpos="-0.04660692039671295 0 0.01396468827655025 0.9868259031903286 0 0.1617857743826451 0 0 0.65 0" ctrl="0 0 0"/>
+  </keyframe>
+</mujoco>

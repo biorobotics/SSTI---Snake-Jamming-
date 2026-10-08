@@ -1,0 +1,10 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+**/MUJOCO_LOG.TXT
+mujoco_sim/outputs/
+test_logs/
+results/
+.DS_Store
+Thumbs.db
