@@ -7,7 +7,8 @@ from pathlib import Path
 
 import numpy as np
 
-from clearance_ablation.study import ClearanceEnv, write_json
+from reaching_env import ReachingEnv
+from train_ppo import write_json
 
 
 ROOT = Path(__file__).resolve().parent
@@ -19,7 +20,7 @@ TIERS = {
 
 
 def make_scene_env(config, scene):
-    env = ClearanceEnv(config | dict(initial_q_rad=scene["initial_q"],
+    env = ReachingEnv(config | dict(initial_q_rad=scene["initial_q"],
                                      target_witness_rad=scene["target_witness"]), "B_single")
     env.task_boxes = tuple(tuple(box) for box in scene["boxes"])
     env.reset(seed=config["evaluation_seed"])
@@ -43,7 +44,7 @@ def blocked_direct_path(env):
 
 def generate_maps(config, count, seed):
     rng = np.random.default_rng(seed)
-    reference = ClearanceEnv(config, "B_single")
+    reference = ReachingEnv(config, "B_single")
     reference.reset(seed=config["evaluation_seed"])
     bounds = reference.bounds.copy()
     scenes = {"reference": scene_from_env(reference, tier="reference", proposal=0)}
@@ -59,7 +60,7 @@ def generate_maps(config, count, seed):
             obstacle["dimensions_m"] = (np.array(obstacle["dimensions_m"]) *
                                          (1. + rng.uniform(-1., 1., 2) * limits["size_jitter"])).tolist()
             offset = float(rng.uniform(-1., 1.) * limits["lateral_jitter_m"])
-            env = ClearanceEnv(config | dict(target_witness_rad=witness.tolist(), obstacle=obstacle), "B_single")
+            env = ReachingEnv(config | dict(target_witness_rad=witness.tolist(), obstacle=obstacle), "B_single")
             try:
                 env.set_state(env.base_q)
                 delta = env.fixed_goal - env.marker

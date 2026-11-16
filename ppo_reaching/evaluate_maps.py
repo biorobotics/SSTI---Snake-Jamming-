@@ -10,7 +10,6 @@ import numpy as np
 from stable_baselines3 import PPO
 import torch
 
-from clearance_ablation.study import COMPONENTS
 from map_generator import DEFAULT_CONFIG, ROOT, make_scene_env
 from train_ppo import write_json
 from trajectory import rollout, validate
@@ -21,7 +20,7 @@ def main():
     parser.add_argument("--maps", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
-    parser.add_argument("--checkpoint", type=Path, default=ROOT / "checkpoints/single_obstacle_seed2026.zip")
+    parser.add_argument("--checkpoint", type=Path, default=ROOT / "checkpoints/single_obstacle_20s_seed61133.zip")
     parser.add_argument("--joint-limits", type=Path, default=ROOT / "configs/joint_limits.json")
     parser.add_argument("--render", action="store_true", help="Render the reference rollout in MP4 and GIF")
     args = parser.parse_args()
@@ -47,8 +46,8 @@ def main():
             return action
 
         try:
-            trace = rollout(env, config["evaluation_seed"], policy, reward_names=COMPONENTS,
-                            extra_sample=lambda state: {"obstacle_clearance_m": state.obstacle_clearance})
+            trace = rollout(env, config["evaluation_seed"] + 1000, policy,
+                            extra_sample=lambda state: {"obstacle_clearance_m": np.min(state.link_clearance)})
             result = validate(env, trace, args.joint_limits)
             rows.append(dict(case=case, tier=scene.get("tier", "custom"),
                              minimum_goal_error_m=float(trace["distance_m"].min()),

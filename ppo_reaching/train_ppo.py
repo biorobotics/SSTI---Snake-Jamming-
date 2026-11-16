@@ -26,12 +26,12 @@ def write_json(path, data):
     temporary.replace(path)
 
 
-def make_env(config, phase):
-    return Monitor(ReachingEnv(config, phase))
+def make_env(config, phase, env_factory=ReachingEnv):
+    return Monitor(env_factory(config, phase))
 
 
-def evaluate(model, config, phase, seed, count, urdf, save=None):
-    env = ReachingEnv(config, phase)
+def evaluate(model, config, phase, seed, count, urdf, save=None, *, env_factory=ReachingEnv):
+    env = env_factory(config, phase)
     rows, representative = [], None
     for i in range(count):
         trace = rollout(env, seed + i, lambda _, obs: model.predict(obs, deterministic=True)[0])
@@ -45,14 +45,16 @@ def evaluate(model, config, phase, seed, count, urdf, save=None):
         rank = (not summary["validated_success"], summary["final_goal_error_m"])
         if representative is None or rank < representative[0]:
             representative = (rank, trace, summary)
+    env.close()
     return rows, representative
 
 
 class Progress(BaseCallback):
-    def __init__(self, config, phase, directory, urdf, interval):
+    def __init__(self, config, phase, directory, urdf, interval, *, env_factory=ReachingEnv):
         super().__init__()
         self.config, self.phase, self.directory, self.urdf = config, phase, directory, urdf
         self.interval = interval
+        self.env_factory = env_factory
         self.next_evaluation = interval
         self.best = None
         self.evaluation_path = directory / "periodic_evaluation.csv"
@@ -87,7 +89,7 @@ class Progress(BaseCallback):
             return
         self.next_evaluation += self.interval
         rows, _ = evaluate(self.model, self.config, self.phase, self.config["evaluation_seed"],
-                           6 if self.phase == "A_random" else 1, self.urdf)
+                           6 if self.phase == "A_random" else 1, self.urdf, env_factory=self.env_factory)
         row = dict(steps=self.num_timesteps,
                    success_rate=float(np.mean([r["validated_success"] for r in rows])),
                    mean_final_error_m=float(np.mean([r["final_goal_error_m"] for r in rows])),
@@ -115,11 +117,11 @@ def write_csv(path, rows, append=False):
         writer.writerows(rows)
 
 
-def train_phase(config, phase, directory, urdf, budget, previous, resume, quick):
+def train_phase(config, phase, directory, urdf, budget, previous, resume, quick, *, env_factory=ReachingEnv):
     directory.mkdir(exist_ok=True)
     options = config["ppo"]
     workers = 2 if quick else options["workers"]
-    vec = SubprocVecEnv([partial(make_env, config, phase)] * workers, start_method="spawn")
+    vec = SubprocVecEnv([partial(make_env, config, phase, env_factory)] * workers, start_method="spawn")
     try:
         stage_seed = config["seed"] + ("A_fixed", "A_random", "B_single", "C_multi").index(phase)
         vec.seed(stage_seed)
@@ -137,7 +139,8 @@ def train_phase(config, phase, directory, urdf, budget, previous, resume, quick)
         remaining = max(0, budget - (model.num_timesteps if same_phase else 0))
         model.set_logger(configure(str(directory / ("resume_logs" if same_phase else "logs")), ["csv"]))
         if remaining:
-            callback = Progress(config, phase, directory, urdf, 32 if quick else options["evaluation_interval"])
+            callback = Progress(config, phase, directory, urdf, 32 if quick else options["evaluation_interval"],
+                                env_factory=env_factory)
             model.learn(total_timesteps=remaining, reset_num_timesteps=not same_phase, callback=callback, log_interval=1)
             model.logger.record("time/total_timesteps", model.num_timesteps)
             model.logger.dump(step=model.num_timesteps)

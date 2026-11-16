@@ -1,6 +1,6 @@
 # Planar snake reaching with PPO
 
-This study uses the archived fixed-pivot 12-module ReU model with six active joints. The policy commands six absolute joint positions. MuJoCo runs at 500 Hz, with a 50 Hz position-control update and zero gravity. The reaching benchmark uses a 2 cm goal radius, STL convex contacts, and a 4 N·m limit on both actuator torque and the Newton–Euler estimate.
+This study reproduces the earliest archived single-obstacle PPO success from the 20-second horizon sweep. The fixed-pivot 12-module ReU has six active joints, controlled by absolute position requests at 50 Hz. MuJoCo runs at 500 Hz with zero gravity. The experiment uses a 2 cm goal radius, STL and cylinder collision geometry, and a 2 N·m limit on both actuator torque and the Newton–Euler estimate.
 
 ## Generate maps and evaluate PPO
 
@@ -14,15 +14,17 @@ python ppo_reaching/evaluate_maps.py --maps results/reaching/maps.json --out res
 
 The generator writes the reference map and two groups of random variants. It fixes the start, perturbs the goal and the obstacle dimensions and position, and retains cases with collision-free start and goal configurations where the straight joint interpolation is blocked. A valid goal configuration establishes geometric reachability of that pose. The rollout tests whether the controller can execute a path to it.
 
-The evaluation runs the frozen seed-2026 policy, records its strict no-contact success rate by group, and writes CSV metrics and NPZ trajectory traces. CPU inference timing excludes loading the checkpoint and stepping MuJoCo. Add `--render` to produce a reference MP4 and GIF. On headless Linux with EGL support, set `MUJOCO_GL=egl` for rendering. The bundled model reproduces the reference single-obstacle success at 3.62 s in the reference runtime. Load only trusted Stable-Baselines3 checkpoint files.
+The evaluation runs the frozen seed-61133 policy, records its strict no-contact success rate by group, and writes CSV metrics and NPZ trajectory traces. CPU inference timing covers calls to the policy. Add `--render` to produce a reference MP4 and GIF. On headless Linux with EGL support, set `MUJOCO_GL=egl` for rendering. The bundled reference checkpoint reached in 6.00 s with 1.97 cm terminal error and no collisions. Load only trusted Stable-Baselines3 checkpoint files.
 
 ## Train the reference policy
 
 ```sh
-python ppo_reaching/clearance_ablation/study.py --out results/reaching/train --group A1 --seed 2026 --budget 262144 --episodes 1 --stl-reward-ablation --obstacle-contact-cost-per-s 8 --torque-limit-nm 4 --save-first-success --initial ppo_reaching/checkpoints/unobstructed_initial.zip
+python ppo_reaching/train_single.py --out results/reaching/train
 ```
 
-Training charges obstacle contact by duration and evaluates at fixed intervals under strict collision termination. The default reward uses Euclidean distance progress, a goal bonus, two command regularizers, contact costs, and other failure penalties. Training uses the fixed reference layout. The generated random layouts are used for held-out evaluation.
+Training starts from the archived randomized-goal, unobstructed policy and fine-tunes for 196,608 transitions on the fixed reference map. The base seed is 61131 and the single-obstacle training seed is 61133. The policy is evaluated every 8,192 steps and the best checkpoint is selected by validated arrival and terminal error. The bundled checkpoint is from step 81,920. The generated random maps are used for held-out evaluation.
+
+Reward includes 24 times signed Euclidean progress, a +8 terminal goal bonus, command magnitude and change costs weighted 0.001 and 0.0005, and a −8 event penalty for collision or other terminal failures. The first collision ends the episode in both training and evaluation. Each episode has a 1,000-step limit. Pure timeouts have no terminal penalty.
 
 ## Model and asset sources
 
