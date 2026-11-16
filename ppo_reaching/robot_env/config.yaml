@@ -1,0 +1,38 @@
+seed: 61110
+evaluation_seed: 73110
+environment:
+  timestep: 0.002
+  substeps: 10
+  max_steps: 250
+  goal_tolerance_m: 0.02
+  failure_penalty: 150.0
+  action_scale_rad: 0.12
+  position_kp: 32.0
+  position_kv: 1.0
+  actuator_limit_nm: 10.0
+  rnea_limit_nm: 10.0
+  rnea_omega_rad_s: 7.5
+  contact_clearance_m: 0.001
+  max_training_obstacles: 3
+  random_map_count: 24
+  clearance_scale_m: 0.12
+  velocity_scale_rad_s: 6.0
+ppo:
+  workers: 6
+  n_steps: 512
+  batch_size: 256
+  n_epochs: 8
+  gamma: 0.99
+  learning_rate: 0.0003
+  checkpoint_steps: 40000
+training_steps:
+  A: 160000
+  B: 220000
+  C: 260000
+  D: 420000
+evaluation_episodes: 30
+exploration:
+  ent_coef: 0.015
+  sde_sample_freq: 12
+  log_std_init: -1.5
+  stochastic_episodes_per_gap: 20

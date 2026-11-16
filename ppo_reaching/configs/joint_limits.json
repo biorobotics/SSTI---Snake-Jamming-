@@ -1,0 +1,8 @@
+{
+  "head_anchor_hinge": {"velocity_rad_s": null, "effort_nm": null},
+  "joint_2": {"velocity_rad_s": 2.2, "effort_nm": 7.0},
+  "joint_4": {"velocity_rad_s": 2.2, "effort_nm": 7.0},
+  "joint_6": {"velocity_rad_s": 2.2, "effort_nm": 7.0},
+  "joint_8": {"velocity_rad_s": 2.2, "effort_nm": 7.0},
+  "joint_10": {"velocity_rad_s": 2.2, "effort_nm": 7.0}
+}

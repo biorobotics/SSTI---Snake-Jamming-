@@ -2,8 +2,9 @@
 
 Portable MuJoCo assets and a minimal, inspectable simulation baseline. Existing
 robot meshes and MJCF hierarchy are reused; reference and previous variants are
-retained. No experimental datasets, parameter fitting, RL, or IMU processing are
-included in this asset upload.
+retained. The [PPO reaching study](ppo_reaching/README.md) provides a separate
+fixed-pivot MuJoCo environment, seeded map generator, training and evaluation
+commands, and a reference PPO checkpoint.
 
 ## Quick start
 

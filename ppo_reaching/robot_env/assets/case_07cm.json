@@ -1,0 +1,82 @@
+{
+  "seed": 2026110807,
+  "gap_cm": 7,
+  "map_bounds_m": [
+    [
+      0.0,
+      -0.5
+    ],
+    [
+      1.0,
+      0.5
+    ]
+  ],
+  "mount_LT_m": [
+    0.02,
+    0.0
+  ],
+  "planned_joints": [
+    "head_anchor_hinge",
+    "joint_2",
+    "joint_4",
+    "joint_6",
+    "joint_8",
+    "joint_10"
+  ],
+  "q_start_rad": [
+    0.016609817617572353,
+    -0.12455028716962852,
+    -0.043410896664963644,
+    0.01201739785619027,
+    -0.10099059263366023,
+    -0.1963347439451208
+  ],
+  "start_tip_LT_m": [
+    0.6289848027501838,
+    0.06911715042498011
+  ],
+  "start_box_clearance_m": 0.00749999999996798,
+  "start_clearance_m": 0.010237385884294504,
+  "target_witness_q_rad": [
+    0.09096822794417989,
+    -0.12141249412008721,
+    -0.07857792071944641,
+    0.3800586369064056,
+    1.2733092703542073,
+    0.3086082595660975
+  ],
+  "target_witness_clearance_m": 0.004948982932004989,
+  "target_witness_box_clearance_m": 0.007499999999999842,
+  "goal_LT_m": [
+    0.512765611394781,
+    0.26425234809172937
+  ],
+  "corridor_center_LT_m": [
+    0.4768767327410996,
+    0.2378661387257038
+  ],
+  "corridor_angle_deg": 38.30276648170412,
+  "wall_length_m": 0.204216,
+  "wall_thickness_m": 0.02,
+  "walls_LT_theta_rad": [
+    [
+      0.5047684942933444,
+      0.20255254874234582,
+      0.6685093877282613
+    ],
+    [
+      0.44898497118885483,
+      0.2731797287090618,
+      0.6685093877282613
+    ]
+  ],
+  "target_sampling_attempts": 25,
+  "start_sampling_attempts": 3,
+  "goal_tolerance_m": 0.01,
+  "gravity_m_s2": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "acceptance": "Full robot including M12 inside box, obstacle clearance and nonadjacent self-collision"
+}

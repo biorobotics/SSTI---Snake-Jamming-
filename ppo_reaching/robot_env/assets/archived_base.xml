@@ -1,0 +1,206 @@
+<mujoco model="ReU12_box_with_corridor">
+  <compiler angle="radian" meshdir="../assets/" />
+  <option cone="elliptic" noslip_iterations="5" timestep="0.002" gravity="0 0 0" />
+  <visual>
+    <global offwidth="1800" offheight="1200" />
+  </visual>
+  <asset>
+    <mesh name="ReU_mesh" file="ReU_Mesh.STL" scale="0.0254 0.0254 0.0254" />
+    <material name="red" rgba="1 0 0 1" />
+    <material name="blue" rgba="0 0 1 1" />
+    <material name="green_dark" rgba="0 0.6 0 1" />
+    <material name="green_light" rgba="0 0.4 0 1" />
+    <material name="debug_col" rgba="1 0.5 0.5 0.3" />
+    <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="32" />
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4" />
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
+  </asset>
+  <worldbody>
+    <light pos="0 -1 2" dir="0 1 -1" directional="true" />
+    <body name="mod_11_in" pos="-0.025653999999357843 0.053086000001565881 -0.088579999999999978" quat="0.70710678116750403 0 0 -0.70710678120559101">
+      <joint name="head_anchor_hinge" type="hinge" pos="0.011921999999999995 0.025654 0.068579999999999974" axis="1 5.3863136173504245e-11 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+      <geom name="mod_11_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+      <body name="mod_10_out" pos="-0.00025400000025993421 0.053085999999998745 -0.051054000000000044" quat="0.70710678118827874 0 0 -0.70710678118481629">
+        <joint name="joint_11" type="hinge" pos="0.03429000000012436 0.025654000000092027 0.067564000000000068" axis="1 -4.8965276278067904e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+        <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+        <geom name="mod_10_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+        <body name="mod_10_body" pos="0 0 0" quat="1 0 0 0">
+          <geom name="mesh10" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+          <geom name="mod_10_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+          <body name="mod_10_in" pos="0 0 0" quat="1 0 0 0">
+            <geom name="mod_10_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+            <body name="mod_9_out" pos="-0.00025400000025994896 0.053085999999998759 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+              <joint name="joint_10" type="hinge" pos="0.034290000000124374 0.025654000000092037 0.067564000000000013" axis="1 -4.8967496724117154e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+              <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+              <geom name="mod_9_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+              <body name="mod_9_body" pos="0 0 0" quat="1 0 0 0">
+                <geom name="mesh9" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                <geom name="mod_9_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                <body name="mod_9_in" pos="0 0 0" quat="1 0 0 0">
+                  <geom name="mod_9_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                  <body name="mod_8_out" pos="-0.00025400000025994842 0.053085999999998752 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                    <joint name="joint_9" type="hinge" pos="0.034290000000124367 0.025654000000092034 0.067564000000000013" axis="1 -4.8967496724117154e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                    <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                    <geom name="mod_8_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                    <body name="mod_8_body" pos="0 0 0" quat="1 0 0 0">
+                      <geom name="mesh8" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                      <geom name="mod_8_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                      <body name="mod_8_in" pos="0 0 0" quat="1 0 0 0">
+                        <geom name="mod_8_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                        <body name="mod_7_out" pos="-0.00025400000025993746 0.053085999999998752 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                          <joint name="joint_8" type="hinge" pos="0.034290000000124367 0.025654000000092034 0.067564000000000013" axis="1 -4.8965276278067904e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                          <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                          <geom name="mod_7_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                          <body name="mod_7_body" pos="0 0 0" quat="1 0 0 0">
+                            <geom name="mesh7" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                            <geom name="mod_7_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                            <body name="mod_7_in" pos="0 0 0" quat="1 0 0 0">
+                              <geom name="mod_7_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                              <body name="mod_6_out" pos="-0.00025400000025994175 0.053085999999998745 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                                <joint name="joint_7" type="hinge" pos="0.034290000000124367 0.025654000000092034 0.067564000000000013" axis="1 -4.8966386501092529e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                                <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                                <geom name="mod_6_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                                <body name="mod_6_body" pos="0 0 0" quat="1 0 0 0">
+                                  <geom name="mesh6" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                                  <geom name="mod_6_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                                  <body name="mod_6_in" pos="0 0 0" quat="1 0 0 0">
+                                    <geom name="mod_6_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                                    <body name="mod_5_out" pos="-0.00025400000025994364 0.053085999999998752 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                                      <joint name="joint_6" type="hinge" pos="0.034290000000124374 0.025654000000092037 0.067564000000000013" axis="1 -4.8966386501092529e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                                      <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                                      <geom name="mod_5_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                                      <body name="mod_5_body" pos="0 0 0" quat="1 0 0 0">
+                                        <geom name="mesh5" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                                        <geom name="mod_5_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                                        <body name="mod_5_in" pos="0 0 0" quat="1 0 0 0">
+                                          <geom name="mod_5_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                                          <body name="mod_4_out" pos="-0.00025400000025994901 0.053085999999998752 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                                            <joint name="joint_5" type="hinge" pos="0.034290000000124374 0.025654000000092037 0.067564000000000013" axis="1 -4.8967496724117154e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                                            <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                                            <geom name="mod_4_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                                            <body name="mod_4_body" pos="0 0 0" quat="1 0 0 0">
+                                              <geom name="mesh4" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                                              <geom name="mod_4_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                                              <body name="mod_4_in" pos="0 0 0" quat="1 0 0 0">
+                                                <geom name="mod_4_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                                                <body name="mod_3_out" pos="-0.00025400000025994153 0.053085999999998752 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                                                  <joint name="joint_4" type="hinge" pos="0.034290000000124367 0.025654000000092037 0.067563999999999985" axis="1 -4.8965831389580217e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                                                  <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                                                  <geom name="mod_3_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                  <body name="mod_3_body" pos="0 0 0" quat="1 0 0 0">
+                                                    <geom name="mesh3" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                                                    <geom name="mod_3_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                    <body name="mod_3_in" pos="0 0 0" quat="1 0 0 0">
+                                                      <geom name="mod_3_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                                                      <body name="mod_2_out" pos="-0.00025400000025995329 0.053085999999998745 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                                                        <joint name="joint_3" type="hinge" pos="0.034290000000124367 0.025654000000092034 0.067563999999999985" axis="1 -4.896860694714178e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                                                        <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                                                        <geom name="mod_2_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                        <body name="mod_2_body" pos="0 0 0" quat="1 0 0 0">
+                                                          <geom name="mesh2" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                                                          <geom name="mod_2_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                          <body name="mod_2_in" pos="0 0 0" quat="1 0 0 0">
+                                                            <geom name="mod_2_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                                                            <body name="mod_1_out" pos="-0.00025400000025993942 0.053085999999998745 -0.051053999999999988" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                                                              <joint name="joint_2" type="hinge" pos="0.034290000000124367 0.025654000000092037 0.067563999999999985" axis="1 -4.8965831389580217e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                                                              <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                                                              <geom name="mod_1_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                              <body name="mod_1_body" pos="0 0 0" quat="1 0 0 0">
+                                                                <geom name="mesh1" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                                                                <geom name="mod_1_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                                <body name="mod_1_in" pos="0 0 0" quat="1 0 0 0">
+                                                                  <geom name="mod_1_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="debug_col" contype="3" conaffinity="4" group="1" />
+                                                                  <body name="mod_0_out" pos="-0.00025400000025994077 0.053085999999998752 -0.051053999999999995" quat="0.70710678118827874 0 0 -0.70710678118481629">
+                                                                    <joint name="joint_1" type="hinge" pos="0.034290000000124367 0.025654000000092037 0.067563999999999999" axis="1 -4.8966386501092529e-12 0" range="-1.57079632679 1.57079632679" limited="true" damping="3.18" frictionloss="0.2" />
+                                                                    <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                                                                    <geom name="mod_0_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                                    <body name="mod_0_body" pos="0 0 0" quat="1 0 0 0">
+                                                                      <geom name="mesh0" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="green_dark" contype="0" conaffinity="0" group="0" />
+                                                                      <geom name="mod_0_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+                                                                      <body name="mod_0_in" pos="0 0 0" quat="1 0 0 0">
+                                                                        <geom name="mod_0_in" type="cylinder" size="0.017018000000000002 0.0127" pos="0.0254 0.018796 0.01651" euler="1.57079632679 0 0" material="red" contype="3" conaffinity="4" group="1" />
+                                                                      </body>
+                                                                    </body>
+                                                                    <site name="joint_marker_01" type="sphere" pos="0.034290000000124367 0.025654000000092037 0.067563999999999999" size=".0035" rgba="1 .65 .02 1" group="3" />
+                                                                  </body>
+                                                                </body>
+                                                              </body>
+                                                              <site name="joint_marker_02" type="sphere" pos="0.034290000000124367 0.025654000000092037 0.067563999999999985" size=".0035" rgba="1 .65 .02 1" group="3" />
+                                                            </body>
+                                                          </body>
+                                                        </body>
+                                                        <site name="joint_marker_03" type="sphere" pos="0.034290000000124367 0.025654000000092034 0.067563999999999985" size=".0035" rgba="1 .65 .02 1" group="3" />
+                                                      </body>
+                                                    </body>
+                                                  </body>
+                                                  <site name="joint_marker_04" type="sphere" pos="0.034290000000124367 0.025654000000092037 0.067563999999999985" size=".0035" rgba="1 .65 .02 1" group="3" />
+                                                </body>
+                                              </body>
+                                            </body>
+                                            <site name="joint_marker_05" type="sphere" pos="0.034290000000124374 0.025654000000092037 0.067564000000000013" size=".0035" rgba="1 .65 .02 1" group="3" />
+                                          </body>
+                                        </body>
+                                      </body>
+                                      <site name="joint_marker_06" type="sphere" pos="0.034290000000124374 0.025654000000092037 0.067564000000000013" size=".0035" rgba="1 .65 .02 1" group="3" />
+                                    </body>
+                                  </body>
+                                </body>
+                                <site name="joint_marker_07" type="sphere" pos="0.034290000000124367 0.025654000000092034 0.067564000000000013" size=".0035" rgba="1 .65 .02 1" group="3" />
+                              </body>
+                            </body>
+                          </body>
+                          <site name="joint_marker_08" type="sphere" pos="0.034290000000124367 0.025654000000092034 0.067564000000000013" size=".0035" rgba="1 .65 .02 1" group="3" />
+                        </body>
+                      </body>
+                    </body>
+                    <site name="joint_marker_09" type="sphere" pos="0.034290000000124367 0.025654000000092034 0.067564000000000013" size=".0035" rgba="1 .65 .02 1" group="3" />
+                  </body>
+                </body>
+              </body>
+              <site name="joint_marker_10" type="sphere" pos="0.034290000000124374 0.025654000000092037 0.067564000000000013" size=".0035" rgba="1 .65 .02 1" group="3" />
+            </body>
+          </body>
+        </body>
+        <site name="joint_marker_11" type="sphere" pos="0.03429000000012436 0.025654000000092027 0.067564000000000068" size=".0035" rgba="1 .65 .02 1" group="3" />
+      </body>
+      <body name="mod_11_body" pos="0 0 0" quat="1 0 0 0">
+        <geom name="mesh11" type="mesh" mesh="ReU_mesh" pos="0 0 0" material="blue" contype="0" conaffinity="0" group="0" />
+        <geom name="mod_11_link" type="cylinder" pos="0.0254 0.0258 0.035559999999999994 " size="0.0258 0.006" material="debug_col" contype="0" conaffinity="0" group="1" />
+        <body name="mod_11_out" pos="0 0 0" quat="1 0 0 0">
+          <inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001" />
+          <geom name="mod_11_out" type="cylinder" size="0.0125 0.008" pos="0.011921999999999999 0.025654 0.06858" euler="0 1.57079632679 0 " material="debug_col" contype="0" conaffinity="0" group="1" />
+        </body>
+      </body>
+      <site name="HEAD_module_12" type="sphere" pos="0.011921999999999995 0.025654 0.068579999999999974" size=".007" rgba="1 .08 .08 1" group="3" />
+      <site name="head_mount" type="sphere" pos="0.011921999999999995 0.025654 0.068579999999999974" size=".004" rgba=".05 .85 1 1" group="3" />
+    </body>
+    <camera name="inspection_side" pos="0.0010160000000211447 -1 0.30730699999999994" xyaxes="0 0 -1 1 0 0" orthographic="true" fovy=".48" />
+    <geom name="map_obstacle_1" type="box" pos="0.14500000000000002 0.041164000000184081 -0.52000000000000002" size="0.050000000000000003 0.11 0.040000000000000036" contype="1" conaffinity="2" rgba="0.44 0.49 0.54 1" />
+    <geom name="map_obstacle_2" type="box" pos="-0.14500000000000002 0.041164000000184081 -0.29499999999999998" size="0.055000000000000007 0.11 0.064999999999999988" contype="1" conaffinity="2" rgba="0.44 0.49 0.54 1" />
+    <geom name="map_obstacle_3" type="box" pos="0.36249999999999999 0.041164000000184081 -0.30000000000000004" size="0.067500000000000004 0.11 0.040000000000000008" contype="1" conaffinity="2" rgba="0.44 0.49 0.54 1" />
+    <geom name="map_obstacle_4" type="box" pos="0.32750000000000001 0.041164000000184081 -0.64999999999999991" size="0.04250000000000001 0.11 0.070000000000000007" contype="1" conaffinity="2" rgba="0.44 0.49 0.54 1" />
+    <geom name="map_obstacle_5" type="box" pos="-0.090000000000000011 0.041164000000184081 -0.70500000000000007" size="0.050000000000000003 0.11 0.075000000000000011" contype="1" conaffinity="2" rgba="0.44 0.49 0.54 1" />
+    <geom name="map_obstacle_6" type="box" pos="0.28249999999999997 0.041164000000184081 -0.14999999999999999" size="0.10750000000000001 0.11 0.029999999999999999" contype="1" conaffinity="2" rgba="0.44 0.49 0.54 1" />
+    <geom name="map_frame_0" type="box" pos="-0.499 0.041164000000184081 -0.5" size="0.001 0.11 0.5" contype="0" conaffinity="0" rgba="0.36 0.52 0.68 0.35" />
+    <geom name="map_frame_1" type="box" pos="0.499 0.041164000000184081 -0.5" size="0.001 0.11 0.5" contype="0" conaffinity="0" rgba="0.36 0.52 0.68 0.35" />
+    <geom name="map_frame_2" type="box" pos="0 0.041164000000184081 -0.001" size="0.5 0.11 0.001" contype="0" conaffinity="0" rgba="0.36 0.52 0.68 0.35" />
+    <geom name="map_frame_3" type="box" pos="0 0.041164000000184081 -0.999" size="0.5 0.11 0.001" contype="0" conaffinity="0" rgba="0.36 0.52 0.68 0.35" />
+  </worldbody>
+  <actuator>
+    <motor name="motor_1_torque" joint="joint_1" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_2_torque" joint="joint_2" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_3_torque" joint="joint_3" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_4_torque" joint="joint_4" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_5_torque" joint="joint_5" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_6_torque" joint="joint_6" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_7_torque" joint="joint_7" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_8_torque" joint="joint_8" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_9_torque" joint="joint_9" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_10_torque" joint="joint_10" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_11_torque" joint="joint_11" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+    <motor name="motor_head_yaw" joint="head_anchor_hinge" gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited="true" forcerange="-10 10" />
+  </actuator>
+  <keyframe>
+    <key name="neutral_static" qpos="0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0" />
+  </keyframe>
+</mujoco>
