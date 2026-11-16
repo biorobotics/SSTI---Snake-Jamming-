@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 **/MUJOCO_LOG.TXT
 mujoco_sim/outputs/
+anchoring_models/outputs/
 test_logs/
 results/
 .DS_Store

@@ -1,0 +1,32 @@
+{
+  "unit_tests_passed": 13,
+  "real_replay_regressions": [
+    {
+      "trial": 13,
+      "raw_rows": 2189,
+      "tracked_rows": 2041,
+      "max_force_difference_N": 6.244819985568029e-07,
+      "first_alarm_s": 7.58313199999975,
+      "reference_mark_s": 9.750643999999738,
+      "lead_time_s": 2.167511999999988,
+      "source_csv_sha256": "12809872d253842239ca8d593782bd194692aafb0f6e4cf6258234823462e8b3"
+    },
+    {
+      "trial": 14,
+      "raw_rows": 2197,
+      "tracked_rows": 2112,
+      "max_force_difference_N": 6.617116810048174e-07,
+      "first_alarm_s": 4.3440279999995255,
+      "reference_mark_s": 6.700573000001896,
+      "lead_time_s": 2.35654500000237,
+      "source_csv_sha256": "7170297acce78dfbf332f954993b9c365270308f3299fe4ad062633cba289fc5"
+    }
+  ],
+  "dynamics_random_cases": 32,
+  "max_dynamics_torque_difference_Nm": 0.0,
+  "max_dynamics_wrench_difference": 0.0,
+  "max_mass_matrix_difference": 0.0,
+  "original_dynamics_sha256": "481b9178939374092da0b1aa66c4dc1a4ece0a7df2a29befd31856587fe30ee7",
+  "preserved_mujoco_tests": "Dependency unavailable in analysis environment: mujoco",
+  "full_reaching_moment_equilibrium_verified": false
+}

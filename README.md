@@ -2,8 +2,16 @@
 
 Portable MuJoCo assets and a minimal, inspectable simulation baseline. Existing
 robot meshes and MJCF hierarchy are reused; reference and previous variants are
-retained. No experimental datasets, parameter fitting, RL, or IMU processing are
-included in this asset upload.
+retained. The analytical module adds Min-Max initial contact-force prediction,
+Fn-only transfer, reaching reaction calculations and contact-warning tracking.
+
+## Analytical calculation and tracking
+
+Start with the [analytical model guide](anchoring_models/README.md) for runnable
+CSV examples, model equations, input conventions and regression checks.
+The workflow proceeds from initial anchoring to reaching-time assessment.
+
+![Initial model, reaching assessment and symbol definitions](anchoring_models/docs/figures/compact_initial_reaching_annotated.png)
 
 ## Quick start
 
