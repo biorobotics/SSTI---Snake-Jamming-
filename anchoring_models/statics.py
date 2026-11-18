@@ -49,15 +49,17 @@ class InitialState:
         result["joint_reaction_native_N"] = [self.fn_native_N[2], self.ft_native_N[2]]
         result["ft_common_N"] = (np.asarray(self.ft_native_N) * [1, -1, 1]).tolist()
         result["response_fn0_N"] = list(self.fn_native_N)
-        result["response_ft0_N"] = [0.0, 0.0, 0.0]
+        result["response_ft0_N"] = result["ft_common_N"].copy()
+        result["shear_update_mode"] = "overwrite_from_current_reaction"
         return result
 
 
 def solve_initial(geometry, measured_torque_Nm, mu=0.5, audit_tolerance=1e-6):
     """Solve once at the supplied no-wrench initialization snapshot.
 
-    The complete native six-force optimum is preserved. Fn-only transfer is
-    performed later by ContactTracker. Infeasibility is explicit.
+    The complete native six-force optimum is preserved. ContactTracker updates
+    normals from this reference and overwrites shear from the current reaction.
+    Infeasibility is explicit.
     """
     if not isinstance(geometry, Geometry):
         raise TypeError("geometry must be a Geometry instance")

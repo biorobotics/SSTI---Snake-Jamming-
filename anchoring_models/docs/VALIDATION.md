@@ -1,5 +1,18 @@
 # Validation record
 
+## Initial-shear clarification on 2026-11-17
+
+The initial metadata and formula figures retain the optimized initial shear.
+During reaching, the current shear assignment overwrites that initial value.
+The previous Fn-only description was imprecise. The snapshot response equations
+retain their existing numerical behavior, including zero shear when the
+horizontal input is zero. Thirteen unit tests passed after this clarification,
+including explicit checks of preserved initial shear and later overwrite.
+
+The workflow GIF uses synthetic reactions at ATI136 and the existing Min-Max
+initialization. It highlights the executed pseudocode, the free-body force
+components and three friction cones. All 214 frames were decoded and checked.
+
 ## Portable module checks
 
 The analytical module was checked on 2026-11-15 with the existing local Python
@@ -7,7 +20,7 @@ environment. Thirteen focused unit tests passed. Both documented CLI examples
 ran successfully and produced CSV, JSON and six-channel figures.
 
 The tests cover the saved T13 Min-Max initialization, independent equilibrium
-residuals, Fn-only postprocessing, both response rules, contact-2 signs,
+residuals, initial-shear preservation and overwrite, both response rules, contact-2 signs,
 friction exceedance, retained negative normals, latched warnings, independent
 snapshots, rejected invalid samples, a zero sharing denominator, preservation
 of CSV samples, one-rod analytical dynamics, forward/inverse dynamics closure,
@@ -57,7 +70,7 @@ environment. Their previous validation record remains under
 `mujoco_sim/docs/VALIDATION.md`. This update changes the analytical package,
 its documentation and the repository entry points.
 
-Fn-only transfer and force sharing retain provisional assumptions. The
+Shear overwrite and force sharing retain provisional assumptions. The
 reaching response has an explicit false value for complete two-body moment
 equilibrium verification. Applied moments are recorded as unmapped. The
 kinematic/dynamic frame alignment and the physical reaching response still

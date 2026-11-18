@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-15T22:40:08.363551</dc:date>
+    <dc:date>2026-11-17T20:42:21.174120</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -32,7 +32,7 @@ z
    <g id="line2d_1">
     <path d="M 28.512 213.4512
 L 605.088 213.4512
-" clip-path="url(#pbcd2a227f3)" style="fill: none; stroke: #bbbbbb; stroke-width: 0.65; stroke-linecap: square"/>
+" clip-path="url(#p43bff9774e)" style="fill: none; stroke: #bbbbbb; stroke-width: 0.65; stroke-linecap: square"/>
    </g>
    <g id="text_1">
     <text style="font-weight: 700; font-size: 16px; font-family: 'STIXGeneral'; text-anchor: middle; fill: #111111" x="316.8" y="22.4464" transform="rotate(-0 316.8 22.4464)">Initial state · Min-Max</text>
@@ -186,19 +186,21 @@ L 605.088 213.4512
     </g>
    </g>
    <g id="text_6">
-    <!-- $\mathbf{F}_{n0}=\mathbf{F}_n^{*},\qquad \mathbf{F}_{t0}=\mathbf{0}$ -->
-    <g style="fill: #111111" transform="translate(220.77 200.8356)">
+    <!-- $\mathbf{F}_{n0}=\mathbf{F}_n^{*},\qquad \mathbf{F}_{t0}=\mathbf{F}_t^{*}$ -->
+    <g style="fill: #111111" transform="translate(214.94 200.8356)">
      <text>
       <tspan x="0" y="-0.5015" style="font-weight: 700; font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">F</tspan>
       <tspan x="54.048643" y="-0.5015" style="font-weight: 700; font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">F</tspan>
       <tspan x="130.427227" y="-0.5015" style="font-weight: 700; font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">F</tspan>
-      <tspan x="181.057068" y="-0.5015" style="font-weight: 700; font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">0</tspan>
+      <tspan x="181.057068" y="-0.5015" style="font-weight: 700; font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">F</tspan>
       <tspan x="13.788547" y="2.7985" style="font-style: italic; font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">n</tspan>
       <tspan x="67.83719" y="6.2965" style="font-style: italic; font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">n</tspan>
       <tspan x="144.215774" y="2.7985" style="font-style: italic; font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
+      <tspan x="194.845615" y="6.2965" style="font-style: italic; font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
       <tspan x="21.488568" y="2.7985" style="font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">0</tspan>
       <tspan x="67.83719" y="-9.5875" style="font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">*</tspan>
       <tspan x="148.496993" y="2.7985" style="font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">0</tspan>
+      <tspan x="194.845615" y="-9.5875" style="font-size: 15.4px; font-family: 'STIXGeneral'; fill: #111111">*</tspan>
       <tspan x="34.57859" y="-0.5015" style="font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">=</tspan>
       <tspan x="76.527211" y="-0.5015" style="font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">,</tspan>
       <tspan x="161.587015" y="-0.5015" style="font-size: 22px; font-family: 'STIXGeneral'; fill: #111111">=</tspan>
@@ -287,40 +289,40 @@ L 605.088 213.4512
     </g>
    </g>
    <g id="text_10">
-    <!-- $\mathbf{F}_t(t)=-\frac{F_h(t)}{2}\left[w_1(t),\ 1,\ w_3(t)\right]^{\mathsf{T}}$ -->
-    <g style="fill: #111111" transform="translate(175.235 344.9898)">
+    <!-- $\mathbf{F}_t(t)\leftarrow-\frac{F_h(t)}{2}\left[w_1(t),\ 1,\ w_3(t)\right]^{\mathsf{T}}$ -->
+    <g style="fill: #111111" transform="translate(167.875 344.9898)">
      <text>
       <tspan x="0" y="-0.35625" style="font-weight: 700; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">F</tspan>
       <tspan x="14.415244" y="3.09375" style="font-style: italic; font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
-      <tspan x="83.785542" y="-11.117188" style="font-style: italic; font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">F</tspan>
-      <tspan x="105.343435" y="-11.117188" style="font-style: italic; font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
-      <tspan x="272.107442" y="-9.85525" style="font-style: italic; font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">𝘛</tspan>
+      <tspan x="98.528541" y="-11.117188" style="font-style: italic; font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">F</tspan>
+      <tspan x="120.086434" y="-11.117188" style="font-style: italic; font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
+      <tspan x="286.850441" y="-9.85525" style="font-style: italic; font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">𝘛</tspan>
       <tspan x="19.926042" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">(</tspan>
       <tspan x="33.979036" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">)</tspan>
-      <tspan x="46.238032" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">=</tspan>
-      <tspan x="66.593037" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">−</tspan>
-      <tspan x="116.618031" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">[</tspan>
-      <tspan x="148.703031" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">(</tspan>
-      <tspan x="162.756025" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">)</tspan>
-      <tspan x="170.415021" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">,</tspan>
-      <tspan x="188.431611" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">1</tspan>
-      <tspan x="199.931611" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">,</tspan>
-      <tspan x="242.374205" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">(</tspan>
-      <tspan x="256.427198" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">)</tspan>
-      <tspan x="264.086195" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">]</tspan>
+      <tspan x="46.238032" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">←</tspan>
+      <tspan x="76.736036" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">−</tspan>
+      <tspan x="131.36103" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">[</tspan>
+      <tspan x="163.44603" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">(</tspan>
+      <tspan x="177.499024" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">)</tspan>
+      <tspan x="185.15802" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">,</tspan>
+      <tspan x="203.17461" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">1</tspan>
+      <tspan x="214.67461" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">,</tspan>
+      <tspan x="257.117204" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">(</tspan>
+      <tspan x="271.170198" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">)</tspan>
+      <tspan x="278.829194" y="-0.35625" style="font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">]</tspan>
       <tspan x="27.585038" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
-      <tspan x="124.277027" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">w</tspan>
-      <tspan x="156.362027" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
-      <tspan x="217.948201" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">w</tspan>
-      <tspan x="250.033201" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
-      <tspan x="93.622638" y="-8.702188" style="font-style: italic; font-size: 11.27px; font-family: 'STIXGeneral'; fill: #111111">h</tspan>
-      <tspan x="95.785542" y="6.932813" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">2</tspan>
-      <tspan x="99.982138" y="-11.117188" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">(</tspan>
-      <tspan x="109.819233" y="-11.117188" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">)</tspan>
-      <tspan x="139.618031" y="3.09375" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">1</tspan>
-      <tspan x="233.289205" y="3.09375" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">3</tspan>
+      <tspan x="139.020027" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">w</tspan>
+      <tspan x="171.105027" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
+      <tspan x="232.6912" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">w</tspan>
+      <tspan x="264.7762" y="-0.35625" style="font-style: italic; font-size: 23px; font-family: 'STIXGeneral'; fill: #111111">t</tspan>
+      <tspan x="108.365637" y="-8.702188" style="font-style: italic; font-size: 11.27px; font-family: 'STIXGeneral'; fill: #111111">h</tspan>
+      <tspan x="110.528541" y="6.932813" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">2</tspan>
+      <tspan x="114.725137" y="-11.117188" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">(</tspan>
+      <tspan x="124.562232" y="-11.117188" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">)</tspan>
+      <tspan x="154.36103" y="3.09375" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">1</tspan>
+      <tspan x="248.032204" y="3.09375" style="font-size: 16.1px; font-family: 'STIXGeneral'; fill: #111111">3</tspan>
      </text>
-     <rect x="83.785542" y="-6.3875" width="31.394989" height="1.4375"/>
+     <rect x="98.528541" y="-6.3875" width="31.394989" height="1.4375"/>
     </g>
    </g>
    <g id="text_11">
@@ -388,7 +390,7 @@ L 605.088 213.4512
   </g>
  </g>
  <defs>
-  <clipPath id="pbcd2a227f3">
+  <clipPath id="p43bff9774e">
    <rect x="0" y="0" width="633.6" height="439.2"/>
   </clipPath>
  </defs>

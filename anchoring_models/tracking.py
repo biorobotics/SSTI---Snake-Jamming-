@@ -1,4 +1,4 @@
-"""Snapshot response from a frozen Fn-only reference, with latched warnings."""
+"""Normal increments and shear overwrite from a complete initial force state."""
 
 from dataclasses import dataclass
 import math
@@ -29,7 +29,8 @@ class ContactTracker:
     """Each sample starts from Fn0. Warnings latch until a new tracker is made.
 
     Inputs are signed anchor-frame reaction increments relative to the
-    no-external-wrench baseline. The optional moment is reported as unmapped.
+    no-external-wrench baseline. Current shear replaces the initial shear.
+    The optional moment is reported as unmapped.
     """
 
     def __init__(self, initial, redistribution=None):
@@ -56,7 +57,8 @@ class ContactTracker:
             index = 0 if self.redistribution.site == "Rpre1" else 2
             n[index] -= Fv_N
             weights = np.array([0.25, 0.5, 0.25])
-        # Common shear signs already incorporate the contact-2 frame reversal.
+        # Assign current shear, replacing the initial values. Common signs
+        # already incorporate the contact-2 frame reversal.
         t = -Fh_N * weights
         margin = self.initial.mu * n - np.abs(t)
         tol = self.redistribution.force_tolerance_N

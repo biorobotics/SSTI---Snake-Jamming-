@@ -3,7 +3,7 @@
 Portable MuJoCo assets and a minimal, inspectable simulation baseline. Existing
 robot meshes and MJCF hierarchy are reused; reference and previous variants are
 retained. The analytical module adds Min-Max initial contact-force prediction,
-Fn-only transfer, reaching reaction calculations and contact-warning tracking.
+normal-force increments, shear overwrite, reaching reactions and contact-warning tracking.
 
 ## Analytical calculation and tracking
 

@@ -25,9 +25,12 @@ class ModelTests(unittest.TestCase):
         self.assertLess(self.initial.max_moment_residual_Nm, 1e-6)
         self.assertLess(self.initial.max_contact_violation_N, 1e-6)
 
-    def test_fn_only_is_postprocessing(self):
+    def test_initial_shear_preserved_then_overwritten(self):
         native = self.initial.ft_native_N
         self.assertGreater(max(abs(v) for v in native), 4)
+        metadata = self.initial.to_dict()
+        np.testing.assert_allclose(metadata["response_ft0_N"], np.asarray(native)*[1, -1, 1])
+        self.assertEqual(metadata["shear_update_mode"], "overwrite_from_current_reaction")
         output = ContactTracker(self.initial).update(0, 0, 0)
         np.testing.assert_array_equal(output["Ft_common_N"], [0, 0, 0])
         self.assertEqual(native, self.initial.ft_native_N)

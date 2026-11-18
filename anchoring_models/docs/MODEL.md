@@ -41,17 +41,20 @@ defaults are L=0.1021 m and r=0.0167 m. Explicit asymmetric arms are supported.
 Initialization returns the complete optimized six-force state and independent
 residual checks. An infeasible solver result raises `RuntimeError("INFEASIBLE")`.
 
-## Fn-only transfer
+## Complete initial state and shear overwrite
 
-Only after the original optimization completes, construct the response state.
+After optimization, store the complete initial normal and shear state.
 
 \[
-\mathbf F_{n0}=\mathbf F_n^*,\qquad\mathbf F_{t0}=\mathbf0.
+\mathbf F_{n0}=\mathbf F_n^*,\qquad\mathbf F_{t0}=\mathbf F_t^*.
 \]
 
-The optimized shear values remain in the initial-state output. The Fn-only
-reference introduces a separate postprocessing assumption. Its complete
-two-body moment consistency is assessed separately from the original optimum.
+At each reaching snapshot, normals receive the prescribed increment and shear
+is assigned by the current load-sharing rule, replacing the initial shear.
+Thus the initial shear is a preserved optimization result. Zero horizontal
+reaction produces zero shear when the reaching rule is applied. This overwrite
+is a provisional response assumption. Its two-body moment consistency is
+assessed separately from the original optimum.
 
 ## Current contact-1 transfer rule
 

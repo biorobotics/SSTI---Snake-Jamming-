@@ -26,7 +26,7 @@ LEFT = [
 
 RIGHT = [
     (r"$\mathbf{F}_{n0}$", "Frozen optimized normal-force\nreference [N]."),
-    (r"$\mathbf{F}_{t0}$", "Initial shear set to zero after\noptimization [N]."),
+    (r"$\mathbf{F}_{t0}$", "Optimized initial shear [N].\nReplaced by the reaching shear rule."),
     (r"$\mathbf{f}_{\mathrm{reach}}$", "Reaction applied at an anchor site\n(Fh, Fv) [N]."),
     (r"$F_h,F_v$", "Horizontal and vertical reaction\ncomponents [N]."),
     (r"$\Delta\mathbf{F}_n$", "Normal-force increment from the\nsite/direction response rule [N]."),
@@ -83,7 +83,7 @@ def main():
     ))
     texts.append(fig.text(
         0.5, 0.011,
-        "Fn-only transfer and load sharing are provisional. Reaching-time moment consistency awaits validation.",
+        "Shear overwrite and load sharing are provisional. Reaching-time moment consistency awaits validation.",
         ha="center", va="center", fontsize=10.5, color="#555555",
     ))
 

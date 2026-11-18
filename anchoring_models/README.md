@@ -1,8 +1,9 @@
 # Analytical anchoring calculation and tracking
 
-The workflow computes an initial Min-Max contact-force state, transfers its
-normal forces into a frozen reference, evaluates the reaction during reaching,
-and tracks contact loss and friction-cone exceedance.
+The workflow computes and stores the complete initial Min-Max contact-force
+state. During reaching, normal forces receive increments from that reference
+and the shear rule overwrites initial shear. The tracker checks contact loss
+and friction-cone exceedance.
 
 ## Run the examples
 
@@ -22,8 +23,9 @@ states and torques. These examples demonstrate the calculation interfaces.
 
 Each run writes `initial_state.json`, `tracking.csv`, `summary.json` and
 `six_channel_timeline.png`. The complete initial six-force optimum remains
-available in `initial_state.json`. The tracking baseline uses its three normal
-forces and sets all three initial shear forces to zero after optimization.
+available in `initial_state.json`, including the complete initial shear.
+At each reaching sample, the shear rule assigns the current tangential forces.
+For a zero horizontal reaction, this assignment produces zero shear.
 
 ## Inputs
 
@@ -99,6 +101,21 @@ call through `ContactTracker.update`.
 
 ## Mathematical model and symbols
 
+The [animated algorithm and free-body diagram](docs/figures/anchor_pseudocode_free_body.gif)
+walk through the full initial state, normal-force increments, shear overwrite,
+margin evaluation and warnings. Blue arrows show normal forces, orange arrows
+show shear, green shows the applied reaction and gray shows initial shear.
+The two illustrative reaction cases use synthetic inputs at ATI136 and mu=0.5.
+They show friction exceedance and normal contact loss with fixed schematic
+geometry. The response moment-balance assumption remains under validation.
+
+```sh
+python anchoring_models/scripts/render_workflow_demo.py
+```
+
+The generator writes the GIF, representative frames, per-frame force values and
+its parameter audit to `anchoring_models/outputs/workflow_demo/`.
+
 See [the complete equations and assumptions](docs/MODEL.md) and
 [the regression record](docs/VALIDATION.md).
 
@@ -119,7 +136,7 @@ The Min-Max initialization enforces the original two-body force and moment
 equations, unilateral contact and Coulomb friction. It retains the native
 contact-frame shear signs.
 
-Fn-only transfer and reaching-time load redistribution are provisional
+Shear overwrite and reaching-time load redistribution are provisional
 assumptions. The response exposes global force residuals, the applied moment
 left unmapped by the force-sharing rule, and an explicit false value for full
 two-body moment-equilibrium verification. Cone membership alone supports a
